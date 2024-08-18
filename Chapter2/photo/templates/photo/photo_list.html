@@ -1,0 +1,51 @@
+<!-- <html>
+    <head>
+        <title>Photo App</title>
+    </head>
+    <body>
+        <h1><a href="">사진목록 페이지</a></h1>
+        <h3><a href="{% url 'photo_post' %}">New Photo</a></h3>
+        <section>
+            <div>
+                <h2><a href="">푸른 언적</a></h2>
+                <img
+                    src="https://www.google.com/imgres?q=%ED%91%B8%EB%A5%B8%20%EC%96%B8%EB%8D%95&imgurl=https%3A%2F%2Fimg3.daumcdn.net%2Fthumb%2FR658x0.q70%2F%3Ffname%3Dhttp%3A%2F%2Ft1.daumcdn.net%2Fnews%2F201705%2F02%2Fkppa%2F20170502132057371mlky.jpg&imgrefurl=https%3A%2F%2Fv.daum.net%2Fv%2F20170502132058550%3Ff%3Dp&docid=uJbC2U21M8YFPM&tbnid=e0VT2rkT_wRviM&vet=12ahUKEwiF-Jby04WGAxUCbfUHHedlAR0QM3oECFwQAA..i&w=658&h=438&hcb=2&ved=2ahUKEwiF-Jby04WGAxUCbfUHHedlAR0QM3oECFwQAA"
+                    alt="푸른 언덕"
+                    width="300"
+                />
+                <p>마이크로 소프트 1000원</p>
+            </div>
+            <div>
+                <h2><a href="">푸른 언덕2</a></h2>
+                <img
+                    scr="https://www.google.com/imgres?q=%ED%91%B8%EB%A5%B8%20%EC%96%B8%EB%8D%95&imgurl=https%3A%2F%2Fblogthumb.pstatic.net%2F20111116_213%2Fsvnfqlc4fkd_1321410328620HThe1_JPEG%2Fnaver_com_20111116_005650.jpg%3Ftype%3Dw2&imgrefurl=https%3A%2F%2Fblog.naver.com%2Fsvnfqlc4fkd%2F70124186716%3FviewType%3Dpc&docid=bHY2gB77xrmDtM&tbnid=5s4crGJ6oQo4EM&vet=12ahUKEwiF-Jby04WGAxUCbfUHHedlAR0QM3oECCgQAA..i&w=501&h=354&hcb=2&ved=2ahUKEwiF-Jby04WGAxUCbfUHHedlAR0QM3oECCgQAA"
+                    alt="푸른언덕"
+                    width="300"
+                />
+                <p>마이크로 소프트 1000원</p>
+            </div>
+        </section>
+    </body>
+</html> -->
+
+
+<html>
+  <head>
+    <title>Photo App</title>
+  </head>
+  <body>
+    <h1><a href="">사진 목록 페이지</a></h1>
+    <h3><a href="{% url 'photo_post' %}">New Photo</a></h3>
+    <section>
+      {% for photo in photos %}
+      <div>
+        <h2>
+          <a href="{% url 'photo_detail' pk=photo.pk %}">{{ photo.title }}</a>
+        </h2>
+        <img src="{{ photo.image }}" alt="{{ photo.title }}" width="300" />
+        <p>{{ photo.author }}, {{ photo.price }}원</p>
+      </div>
+      {% endfor %}
+    </section>
+  </body>
+</html>
